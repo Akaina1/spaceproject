@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { SparklesCore } from "./ui/sparkles";
+import { SparklesCore } from "./sparkles";
+import {TypewriterEffectSmoothDemo} from "./Typewriter";
 import "../app/globals.css";
 
 export function SparklesPreview() {
@@ -17,9 +18,7 @@ export function SparklesPreview() {
           particleColor="#FFFFFF"
         />
       </div>
-      <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-white relative z-20">
-        This is the main page
-      </h1>
+      <TypewriterEffectSmoothDemo />
     </div>
   );
 }

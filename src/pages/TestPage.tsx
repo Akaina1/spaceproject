@@ -1,13 +1,13 @@
 // pages/TestPage.tsx
 import React from 'react';
 import Link from 'next/link';
-import {SparklesTitle} from '../components/SparklesTitle';
+import { SparklesTitle } from '@/components/SparklesTitle';
 
 const TestPage: React.FC = () => {
   return (
     <div>
-        <Link href="/">
-            Go Home
+        <Link href="/VideoTest">
+            Go to Video Test Page
         </Link>
         <SparklesTitle />
     </div>
