@@ -24,7 +24,11 @@ const VideoTest: React.FC = () => {
       <div className="absolute z-10 text-black inset-0 flex flex-col items-center justify-center gap-4">
         <h1 className="text-4xl font-bold mb-4">Your Video Test Page</h1>
         <p className="text-lg">This is your content over the video background.</p>
-        <Link className="relative text-blue-950" href="/">Go Home</Link>
+        <Link href="/" passHref>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
+            Go Home
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ export function TypewriterEffectSmoothDemo() {
         },
       ],
     ];
-  }, []); // Empty dependency array ensures that the array is only created once on component mount
+  }, []); 
 
   const [isTyping, setIsTyping] = useState(true);
 
@@ -44,7 +44,7 @@ export function TypewriterEffectSmoothDemo() {
       const delay = setTimeout(() => {
         setCurrentLineIndex((prevIndex) => prevIndex + 1);
         setIsTyping(false);
-      }, 3000); // Adjust the delay time as needed (in milliseconds)
+      }, 3000); 
 
       return () => {
         clearTimeout(delay);
