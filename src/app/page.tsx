@@ -9,10 +9,16 @@ const Home: React.FC = () => {
     <div className="flex flex-col items-center justify-end min-h-screen">
       <SparklesPreview />
 
+      {/* Background music */}
+      <audio autoPlay loop>
+        <source src='/Sound/LandingBG.mp3' type='audio/mp3' />
+        Your browser does not support the audio tag.
+      </audio>
+
       <div className="absolute bottom-8">
-        <Link href="/TestPage" passHref>
+        <Link href="/VideoTest" passHref>
           <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
-            Go to Test Page
+            Play Intro
           </button>
         </Link>
       </div>
