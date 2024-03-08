@@ -20,15 +20,6 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
-// Helper function to parse Range header
-function parseRangeHeader(range) {
-  const [, start, end] = range.match(/(\d+)-(\d+)?/);
-  return {
-    start: parseInt(start, 10),
-    end: end ? parseInt(end, 10) : undefined,
-  };
-}
-
 // Routes
 const videoRoutes = require('./routes/videoRoutes');
 const audioRoutes = require('./routes/audioRoutes');
