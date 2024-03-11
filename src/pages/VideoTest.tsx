@@ -1,14 +1,40 @@
 // pages/VideoTest.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import '../app/globals.css';
 
 const VideoTest: React.FC = () => {
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || '';
   const videoId = process.env.NEXT_PUBLIC_YOUTUBE_VIDEO_ID || '';
+  const [showButton, setShowButton] = useState(false);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const mouseY = event.clientY;
+    const windowHeight = window.innerHeight;
+
+    // Check if the mouse is near the bottom of the screen (within 50 pixels)
+    setShowButton(mouseY >= windowHeight - 400);
+  };
+
+  useEffect(() => {
+    // Set a timer for the video duration (in milliseconds)
+    const videoDuration = 224000;
+    const timer = setTimeout(() => {
+      // Automatically navigate to /UniverseMap after the timer completes
+      window.location.href = '/UniverseMap';
+    }, videoDuration);
+
+    // Clean up timer on component unmount
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div
+      className="h-screen overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
       <div className="flex items-center justify-center">
         {/* YouTube player container */}
         <div className="w-full h-full aspect-w-16 aspect-h-9">
@@ -22,11 +48,13 @@ const VideoTest: React.FC = () => {
 
         {/* Text content */}
         <div className="absolute bottom-8">
-          <Link href="/UniverseMap" passHref>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
-              View Universe Map
-            </button>
-          </Link>
+          {showButton && (
+            <Link href="/UniverseMap" passHref>
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                View Universe Map
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
